@@ -117,13 +117,13 @@ function App() {
 
 
 
-      const activePowerTotal = getValue(15);
-      const activeEnergyDelivered = getValue(16);
+      const activePowerTotal = getValue(9);
+      const activeEnergyDelivered = getValue(10);
 
-      const pf1 = getValue(17);
-      const pf2 = getValue(18);
-      const pf3 = getValue(19);
-      const pfTotal = getValue(20);
+      const pf1 = getValue(11);
+      const pf2 = getValue(12);
+      const pf3 = getValue(13);
+      const pfTotal = getValue(14);
 
 
 
