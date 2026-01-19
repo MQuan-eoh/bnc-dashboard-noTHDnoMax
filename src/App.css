@@ -388,4 +388,11 @@
   }
 }
 
+.max-value {
+  font-size: clamp(0.7rem, 2vw, 0.9rem);
+  color: #ffffff;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
 
