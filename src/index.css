@@ -24,8 +24,10 @@ a:hover {
 
 body {
   margin: 0;
+  padding: 0;
   min-width: 320px;
-  min-height: 100vh;
+  height: 100vh;
+  overflow-y: auto;
 
   /* Background Image Setup */
   background-color: #0f0f13; /* Fallback color */

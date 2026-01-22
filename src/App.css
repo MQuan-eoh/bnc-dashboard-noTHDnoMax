@@ -1,8 +1,9 @@
 #root {
   width: 100%;
   max-width: 100%; /* Use full width */
-  margin: 0 auto;
-  padding: 0.5rem; /* Reduced padding */
+  height: 100%;
+  margin: 0;
+  padding: 0.5rem 0.5rem 0 0.5rem; /* Remove bottom padding */
   text-align: center;
   box-sizing: border-box;
 }
@@ -12,6 +13,7 @@
   flex-direction: column;
   gap: 1.5rem; /* Reduced gap */
   width: 100%;
+  padding-bottom: 0.5rem; /* Minimal bottom padding for spacing */
 }
 
 .dashboard-title {
@@ -101,7 +103,10 @@
   border-radius: 16px;
   padding: 1rem; /* Reduced padding from 1.5rem */
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease;
   text-align: left;
   overflow: hidden;
 }
@@ -117,8 +122,12 @@
   border-radius: 16px;
   padding: 2px;
   background: linear-gradient(90deg, transparent, #00f2ff, transparent);
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   background-size: 200% 100%;
@@ -130,7 +139,9 @@
 .glass-panel:hover {
   transform: translateY(-4px);
   background: rgba(0, 0, 0, 0.85); /* Darker/Stronger on hover */
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 242, 255, 0.2);
+  box-shadow:
+    0 10px 40px rgba(0, 0, 0, 0.3),
+    0 0 20px rgba(0, 242, 255, 0.2);
   border-color: transparent; /* Hide real border to show the running one */
 }
 
@@ -152,6 +163,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1.5rem;
+  margin-bottom: 0; /* Ensure no extra margin at bottom */
 }
 
 .panel-header {
@@ -205,8 +217,6 @@
 .collapse-btn:hover {
   background: rgba(255, 255, 255, 0.2);
 }
-
-
 
 .min-max-container {
   margin-top: 1rem;
@@ -271,7 +281,9 @@
   opacity: 0;
   transition: all 0.2s cubic-bezier(0.68, -0.55, 0.27, 1.55);
   border: 1px solid rgba(0, 242, 255, 0.3);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 242, 255, 0.15);
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.6),
+    0 0 20px rgba(0, 242, 255, 0.15);
   pointer-events: none;
   display: flex;
   align-items: center;
@@ -394,5 +406,3 @@
   font-weight: 500;
   white-space: nowrap;
 }
-
-
