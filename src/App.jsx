@@ -89,7 +89,6 @@ function App() {
   const [powerHistory, setPowerHistory] = useState([]);
   const [cosPhiHistory, setCosPhiHistory] = useState([]);
 
-
   useEffect(() => {
     const processValues = (values) => {
       const ids = configIdsRef.current;
@@ -150,13 +149,16 @@ function App() {
       // Update History with Throttling
       const now = Date.now();
       const SAMPLE_INTERVAL_MS = 10000; // 10 seconds
-      const MAX_DATA_POINTS = 60;       // 10 minutes
+      const MAX_DATA_POINTS = 60; // 10 minutes
 
       if (now - lastChartUpdateRef.current >= SAMPLE_INTERVAL_MS) {
         lastChartUpdateRef.current = now;
 
         const updateChartData = (prev, v1, v2, v3) => {
-          const newData = [...prev, { time, value1: v1, value2: v2, value3: v3 }];
+          const newData = [
+            ...prev,
+            { time, value1: v1, value2: v2, value3: v3 },
+          ];
           return newData.slice(-MAX_DATA_POINTS);
         };
 
@@ -165,7 +167,6 @@ function App() {
         setPowerHistory((prev) => updateChartData(prev, p1, p2, p3));
         setCosPhiHistory((prev) => updateChartData(prev, pf1, pf2, pf3));
       }
-
     };
 
     eraWidget.init({
@@ -247,7 +248,6 @@ function App() {
             unit="V"
             height="150px"
           />
-
         </div>
 
         {/* Current */}
@@ -258,19 +258,19 @@ function App() {
           </div>
           <div className="phase-grid">
             <div className="phase-item">
-              <span className="phase-label">I12</span>
+              <span className="phase-label">I1</span>
               <span className="phase-value">
                 {data.current.i1.toFixed(2)} {data.current.unit}
               </span>
             </div>
             <div className="phase-item">
-              <span className="phase-label">I23</span>
+              <span className="phase-label">I2</span>
               <span className="phase-value">
                 {data.current.i2.toFixed(2)} {data.current.unit}
               </span>
             </div>
             <div className="phase-item">
-              <span className="phase-label">I31</span>
+              <span className="phase-label">I3</span>
               <span className="phase-value">
                 {data.current.i3.toFixed(2)} {data.current.unit}
               </span>
@@ -280,14 +280,13 @@ function App() {
             id="currentChart"
             data={currentHistory}
             lines={[
-              { key: "value1", color: "#00E676", name: "I12" },
-              { key: "value2", color: "#00B8D4", name: "I23" },
-              { key: "value3", color: "#64DD17", name: "I31" },
+              { key: "value1", color: "#00E676", name: "I1" },
+              { key: "value2", color: "#00B8D4", name: "I2" },
+              { key: "value3", color: "#64DD17", name: "I3" },
             ]}
             unit="A"
             height="150px"
           />
-
         </div>
 
         {/* Power */}
@@ -298,19 +297,19 @@ function App() {
           </div>
           <div className="phase-grid">
             <div className="phase-item">
-              <span className="phase-label">P12</span>
+              <span className="phase-label">P1</span>
               <span className="phase-value">
                 {data.power.p1.toFixed(2)} {data.power.unit}
               </span>
             </div>
             <div className="phase-item">
-              <span className="phase-label">P23</span>
+              <span className="phase-label">P2</span>
               <span className="phase-value">
                 {data.power.p2.toFixed(2)} {data.power.unit}
               </span>
             </div>
             <div className="phase-item">
-              <span className="phase-label">P31</span>
+              <span className="phase-label">P3</span>
               <span className="phase-value">
                 {data.power.p3.toFixed(2)} {data.power.unit}
               </span>
@@ -320,14 +319,13 @@ function App() {
             id="powerChart"
             data={powerHistory}
             lines={[
-              { key: "value1", color: "#FF3D00", name: "P12" },
-              { key: "value2", color: "#FF9100", name: "P23" },
-              { key: "value3", color: "#FFEA00", name: "P31" },
+              { key: "value1", color: "#FF3D00", name: "P1" },
+              { key: "value2", color: "#FF9100", name: "P2" },
+              { key: "value3", color: "#FFEA00", name: "P3" },
             ]}
             unit="kW"
             height="150px"
           />
-
         </div>
 
         {/* Cos Phi */}
@@ -362,8 +360,6 @@ function App() {
             height="150px"
           />
         </div>
-
-
       </div>
       <ThemeSettings />
     </div>
